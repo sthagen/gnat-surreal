@@ -300,25 +300,26 @@ Common effects included:
 
 More often than not, Vanilla JS is the easiest way!
 
-Logging
+**Logging**
 * `console.log()` `console.warn()` `console.error()`
-* Event logging: `monitorEvents(me())` See: [Chrome Blog](https://developer.chrome.com/blog/quickly-monitor-events-from-the-console-panel-2/)
+* `monitorEvents(me())`
+  * Event logging. See: [Chrome Blog](https://developer.chrome.com/blog/quickly-monitor-events-from-the-console-panel-2/)
 
-Benchmarking / Time It!
+**Benchmarking**
 * `console.time('name')`
 * `console.timeEnd('name')`
 
-Text / HTML Content
+**Text / HTML Content**
 * `me().textContent = "hello world"`
   * XSS Safe! See: [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent)
 * `me().innerHTML = "<p>hello world</p>"`
 * `me().innerText = "hello world"`
 
-Children
+**Child Elements**
 * `me().children`
 * `me().children.hidden = true`
 
-Append / Prepend elements.
+**Appending / Prepending Elements**
 * `me().prepend(new_element)`
 * `me().appendChild(new_element)`
 * `me().insertBefore(element, other_element.firstChild)`
@@ -381,14 +382,14 @@ me().on("click", event => {
     * `<script type="module">`
     * Warning: `me()` will not see `parentElement`. Explicit selector required: `me(".mybutton")`
 
-#### Select a void elements (`<input type="text" />`)
+#### Selecting void elements (`<input type="text" />`)
 * Use: `me('-')` or `me('prev')` or `me('previous')`
   * `<input type="text" /> <script>me('-').value = "hello"</script>`
   * Inspired by the CSS "next sibling" combinator `+` but in reverse `-`
 * Or, use a relative start.
   * `<form> <input type="text" n1 /> <script>me('[n1]', me()).value = "hello"</script> </form>`
 
-#### Null safety. Ignore chain when element is missing!
+#### Ignoring missing elements (Null safety)
 * `me("#i_dont_exist")?.classAdd('active')`
 * Silent warnings: `me("#i_dont_exist", document, false)?.classAdd('active')`
 
