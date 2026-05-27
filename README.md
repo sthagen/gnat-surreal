@@ -326,7 +326,7 @@ Append / Prepend elements.
 
 ## 🔄 <a name="ajax"></a>AJAX (replace jQuery `ajax()`)
 * Lightest, vanilla javascript: [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) or [XMLHttpRequest()](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) (see examples below).
-* Or, alternatives, light: [fixi](https://github.com/bigskysoftware/fixi) or [htmx](https://htmx.org/) or [htmz](https://leanrada.com/htmz/) or [triptych](https://github.com/alexpetros/triptych). Heavy: [turbo](https://github.com/hotwired/turbo) or [unpoly](https://unpoly.com/)
+* Or, alternatives, light: [fixi](https://github.com/bigskysoftware/fixi) or [htmx](https://github.com/bigskysoftware/htmx) or [htmz](https://github.com/Kalabasa/htmz) or [triptych](https://github.com/alexpetros/triptych). Heavy: [turbo](https://github.com/hotwired/turbo) or [unpoly](https://github.com/unpoly/unpoly)
 * Example using `fetch()`
 ```js
 me().on("click", async event => {
