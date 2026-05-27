@@ -324,8 +324,9 @@ Append / Prepend elements.
 * 🔥 `me().insertBefore(element, other_element.firstChild)`
 * 🔥 `me().insertAdjacentHTML("beforebegin", new_element)`
 
-AJAX (replace jQuery `ajax()`)
-* Use [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) or [XMLHttpRequest()](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) or [fixi](https://github.com/bigskysoftware/fixi) or [htmx](https://htmx.org/) or [htmz](https://leanrada.com/htmz/) 
+## 🔄 <a name="ajax"></a>AJAX (replace jQuery `ajax()`)
+* Lightest, vanilla javascript: [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) or [XMLHttpRequest()](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) (see examples below).
+* Or, alternatives, light: [fixi](https://github.com/bigskysoftware/fixi) or [htmx](https://htmx.org/) or [htmz](https://leanrada.com/htmz/) or [triptych](https://github.com/alexpetros/triptych). Heavy: [turbo](https://github.com/hotwired/turbo) or [unpoly](https://unpoly.com/)
 * Example using `fetch()`
 ```js
 me().on("click", async event => {
@@ -343,7 +344,7 @@ me().on("click", async event => {
 ```
 * Example using `XMLHttpRequest()`
 ```js
-me().on("click", async event => {
+me().on("click", event => {
   let e = me(event)
   // EXAMPLE 1: Hit /thing endpoint.
   var xhr = new XMLHttpRequest()
