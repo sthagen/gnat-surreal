@@ -325,16 +325,16 @@ Append / Prepend elements.
 * 🔥 `me().insertAdjacentHTML("beforebegin", new_element)`
 
 AJAX (replace jQuery `ajax()`)
-* Use [htmx](https://htmx.org/) or [htmz](https://leanrada.com/htmz/) or [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) or [XMLHttpRequest()](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)
+* Use [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) or [XMLHttpRequest()](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) or [fixi](https://github.com/bigskysoftware/fixi) or [htmx](https://htmx.org/) or [htmz](https://leanrada.com/htmz/) 
 * Example using `fetch()`
 ```js
 me().on("click", async event => {
   let e = me(event)
-  // EXAMPLE 1: Hit an endpoint.
-  if((await fetch("/webhook")).ok) console.log("Did the thing.")
-  // EXAMPLE 2: Get content and replace me()
+  // EXAMPLE 1: Hit /thing endpoint.
+  if((await fetch("/thing")).ok) console.log("Got thing.")
+  // EXAMPLE 2: Get /thing endpoint and replace me()
   try {
-    let response = await fetch('/endpoint')
+    let response = await fetch('/thing')
     if (response.ok) e.innerHTML = await response.text()
     else console.warn('fetch(): Bad response')
   }
@@ -345,13 +345,13 @@ me().on("click", async event => {
 ```js
 me().on("click", async event => {
   let e = me(event)
-  // EXAMPLE 1: Hit an endpoint.
+  // EXAMPLE 1: Hit /thing endpoint.
   var xhr = new XMLHttpRequest()
-  xhr.open("GET", "/webhook")
+  xhr.open("GET", "/thing")
   xhr.send()
-  // EXAMPLE 2: Get content and replace me()
+  // EXAMPLE 2: Get /thing endpoint and replace me()
   var xhr = new XMLHttpRequest()
-  xhr.open("GET", "/endpoint")
+  xhr.open("GET", "/thing")
   xhr.onreadystatechange = () => {
     if (xhr.readyState == 4 && xhr.status >= 200 && xhr.status < 300) e.innerHTML = xhr.responseText
   }
