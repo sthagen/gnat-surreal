@@ -368,26 +368,29 @@ me().on("click", event => {
 * `e`, `ev`, `evt` = event
 * `f`, `fn` = function
 
-#### Scope functions and variables inside `<script>`
-  * ⭐ Use a block `{ let note = "hi"; function hey(text) { alert(text) }; me().on('click', ev => { hey(note) }) }`
-    * `let` and `function` is scoped within `{ }`
-  * ⭐ Use `me()`
+#### Scoping
+  * ⭐ Scope with block `{` ... `}`
+    * `{ let note = "hi"; function hey(text) { alert(text) }; me().on('click', ev => { hey(note) }) }`
+      * `let` and `function` are scoped within `{ }`
+  * ⭐ Scope with `me()` block
     *  `me().hey = (text) => { alert(text) }`
     *  `me().on('click', (ev) => { me(ev).hey("hi") })`
-  * ⭐ Use an event `me().on('click', ev => { /* add and call function here */ })`
-  * Use an inline module: `<script type="module">`
-    * Note: `me()` in modules will not see `parentElement`, explicit selectors are required: `me(".mybutton")`
+  * ⭐ Scope with event block
+    * `me().on('click', event => { /* ... */ })`
+  * Scope with inline module
+    * `<script type="module">`
+    * Warning: `me()` will not see `parentElement`. Explicit selector required: `me(".mybutton")`
 
-#### Select a void element like `<input type="text" />`
+#### Select a void elements (`<input type="text" />`)
 * Use: `me('-')` or `me('prev')` or `me('previous')`
-  * 🔥 `<input type="text" /> <script>me('-').value = "hello"</script>`
+  * `<input type="text" /> <script>me('-').value = "hello"</script>`
   * Inspired by the CSS "next sibling" combinator `+` but in reverse `-`
 * Or, use a relative start.
-  * 🔥 `<form> <input type="text" n1 /> <script>me('[n1]', me()).value = "hello"</script> </form>`
+  * `<form> <input type="text" n1 /> <script>me('[n1]', me()).value = "hello"</script> </form>`
 
-#### Ignore call chain when element is missing.
-* 🔥 `me("#i_dont_exist")?.classAdd('active')`
-* No warnings: 🔥 `me("#i_dont_exist", document, false)?.classAdd('active')`
+#### Null safety. Ignore chain when element is missing!
+* `me("#i_dont_exist")?.classAdd('active')`
+* Silent warnings: `me("#i_dont_exist", document, false)?.classAdd('active')`
 
 ## <a name="plugins"></a>🔌 Your own plugin
 
