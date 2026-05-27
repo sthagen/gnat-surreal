@@ -218,7 +218,7 @@ Looking for stuff [we recommend doing in vanilla JS](#no-surreal)?
   * Get: `me().attribute('data-x')`
     * For single elements.
     * For many elements, wrap it in: `any(...).run(...)` or `any(...).forEach(...)`
-  * Set: 🔥`me().attribute('data-x', true)`
+  * Set: `me().attribute('data-x', true)`
   * Set multiple: `me().attribute({ 'data-x':'yes', 'data-y':'no' })`
   * Remove: `me().attribute('data-x', null)`
   * Remove multiple: `me().attribute({ 'data-x': null, 'data-y':null })`
