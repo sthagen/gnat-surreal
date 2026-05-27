@@ -97,13 +97,13 @@ Or, 🌐 via CDN: `<script src="https://cdn.jsdelivr.net/gh/gnat/surreal@main/su
 
 * ♻️ All functions work on single elements or arrays of elements.
 * 🔗 Start a chain using `me()` and `any()`
-  * 🟢 Style A `me().classAdd('red')` ⭐ Chain style. Recommended!
-  * 🟠 Style B: `classAdd(me(), 'red')`
+  * 🟢 Style A: `me().classAdd('red')` ⭐ Recommended! Chain style.
+  * 🔵 Style B: `classAdd(me(), 'red')`
 * 🌐 Global conveniences help you write less code.
-  * `globalsAdd()` will automatically warn you of any clobbering issues!
-  * 💀🩸 If you want no conveniences, or are a masochist, delete `globalsAdd()`
-    * 🟢 `me().classAdd('red')` becomes `surreal.me().classAdd('red')`
-    * 🟠 `classAdd(me(), 'red')` becomes `surreal.classAdd(surreal.me(), 'red')`
+  * `globalsAdd()` will automatically warn you of any clobbering issues.
+  * If you do not want global conveniences, delete `globalsAdd()`
+    * 🟠 Style C: `surreal.me().classAdd('red')`
+    * 🟡 Style D: `surreal.classAdd(surreal.me(), 'red')`
 
 See: [Quick Start](#quick-start) and [Reference](#reference) and [No Surreal Needed](#no-surreal)
 
